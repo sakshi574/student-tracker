@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block title %}Top Performers{% endblock %}
+
+{% block content %}
+<h2>🏆 Top Students by Average Grade</h2>
+<table>
+  <tr><th>Roll No</th><th>Name</th><th>Average</th></tr>
+  {% for roll, name, avg in toppers %}
+    <tr>
+      <td>{{ roll }}</td>
+      <td>{{ name }}</td>
+      <td>{{ "%.2f"|format(avg) }}</td>
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

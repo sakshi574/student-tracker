@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block title %}Student Profile{% endblock %}
+{% block content %}
+<h2>📘 Student Profile</h2>
+
+{% if student %}
+  <h3>{{ student[0][1] }} (Roll No: {{ student[0][0] }})</h3>
+  <table>
+    <tr><th>Subject</th><th>Grade</th></tr>
+    {% for entry in student %}
+      <tr>
+        <td>{{ entry[2] }}</td>
+        <td>{{ entry[3] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>❌ No record found for roll number {{ roll }}</p>
+{% endif %}
+{% endblock %}

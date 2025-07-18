@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+
+{% block title %}View Student{% endblock %}
+
+{% block content %}
+<h2>View Student</h2>
+<form method="POST">
+  Roll No: <input type="text" name="roll" required>
+  <button type="submit">View</button>
+</form>
+
+{% if student %}
+  <h3>Results for {{ student[0][1] }} (Roll: {{ student[0][0] }})</h3>
+  <table>
+    <tr><th>Subject</th><th>Grade</th></tr>
+    {% for entry in student %}
+      <tr>
+        <td>{{ entry[2] }}</td>
+        <td>{{ entry[3] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% elif student == [] %}
+  <p>❌ No student found with that roll number.</p>
+{% endif %}
+{% endblock %}
